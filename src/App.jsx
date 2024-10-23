@@ -1,97 +1,102 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import lodearriba from './top'
+// import lodearriba from './top'
 import './App.css'
+import empleados from './empleados'
+
+
+
 
 function App() {
-  // const [count, setCount] = useState(0)
-  // const [agrupar, sumarMas] = useState(1)
-  // const [contabilizar, quitar] = useState(0)
+  const [number1, setNumber1] = useState(0)
+  const [number2, setNumber2] = useState(0)
+  const [result, setResult] = useState(null);
 
-    var movidas = [
-      { name: 'Juan', lastName: 'Perez', hobbies: ['fútbol', 'lectura'], age: 25 },
-      { name: 'María', lastName: 'González', hobbies: ['pintura', 'música'], age: 30 },
-      { name: 'Pedro', lastName: 'López', hobbies: ['senderismo', 'cine'], age: 28 },
-      { name: 'Ana', lastName: 'Martínez', hobbies: ['baile', 'viajar'], age: 22 },
-      { name: 'Carlos', lastName: 'Sánchez', hobbies: ['cocina', 'videojuegos'], age: 35 },
-      { name: 'Sofía', lastName: 'Ruiz', hobbies: ['natación', 'teatro'], age: 29 },
-      { name: 'Luis', lastName: 'Hernández', hobbies: ['jardinería', 'patinar'], age: 31 },
-      { name: 'Elena', lastName: 'Díaz', hobbies: ['fotografía', 'montañismo'], age: 27 },
-      { name: 'Javier', lastName: 'Torres', hobbies: ['ajedrez', 'surf'], age: 33 },
-      { name: 'Laura', lastName: 'Romero', hobbies: ['yoga', 'ciclismo'], age: 26 },
-      { name: 'David', lastName: 'Gómez', hobbies: ['escritura', 'musculación'], age: 34 },
-      { name: 'Isabel', lastName: 'Jiménez', hobbies: ['piano', 'voleibol'], age: 23 },
-      { name: 'Miguel', lastName: 'Alvarez', hobbies: ['cocina', 'pintura'], age: 37 },
-      { name: 'Carmen', lastName: 'Moreno', hobbies: ['jardinería', 'cine'], age: 24 },
-      { name: 'Alejandro', lastName: 'Dominguez', hobbies: ['viajar', 'fotografía'], age: 30 },
-      { name: 'Rosa', lastName: 'Ortega', hobbies: ['bailar', 'leer'], age: 32 },
-      { name: 'Francisco', lastName: 'Vargas', hobbies: ['música', 'senderismo'], age: 28 },
-      { name: 'Lucía', lastName: 'Ramos', hobbies: ['gimnasia', 'ciclismo'], age: 26 },
-      { name: 'Antonio', lastName: 'Castillo', hobbies: ['cocinar', 'pintura'], age: 29 },
-      { name: 'Eva', lastName: 'Iglesias', hobbies: ['cine', 'teatro'], age: 31 },
-      { name: 'José', lastName: 'Fernández', hobbies: ['fútbol', 'baloncesto'], age: 27 },
-      { name: 'Teresa', lastName: 'Serrano', hobbies: ['pintura', 'música'], age: 33 },
-      { name: 'Manuel', lastName: 'Garrido', hobbies: ['cocina', 'fotografía'], age: 30 },
-      { name: 'Rocío', lastName: 'Cortés', hobbies: ['patinar', 'leer'], age: 28 },
-      { name: 'Pablo', lastName: 'Marín', hobbies: ['surf', 'senderismo'], age: 25 },
-      { name: 'Beatriz', lastName: 'Luna', hobbies: ['piano', 'yoga'], age: 29 },
-      { name: 'Diego', lastName: 'Ibáñez', hobbies: ['ciclismo', 'música'], age: 34 },
-      { name: 'Nuria', lastName: 'Gil', hobbies: ['teatro', 'cocina'], age: 27 },
-      { name: 'Rubén', lastName: 'Sanz', hobbies: ['fútbol', 'lectura'], age: 32 },
-      { name: 'Cristina', lastName: 'Herrero', hobbies: ['bailar', 'pintura'], age: 26 }
-    ];
-  
-    var patata1 = 1 
-    var almacenamiento = [];
-    for (var i = 0; i < movidas.length; i++) {
-      almacenamiento.push(
-        <div key={i}>
-          <p>Nombre: {movidas[i].name}</p>
-          <p>Apellidos: {movidas[i].lastName}</p>
-          <p>Hobbies: {movidas[i].hobbies.join(', ')}</p>
-          <p>Edad: {movidas[i].age}</p>
-        </div>
-      );
+    const suma = () => {
+      const n1 = parseFloat(number1);
+      const n2 = parseFloat(number2)
+      setResult(n1+n2)
     }
 
-    var patata2 = 2
-    var resultadopatata = patata1+patata2 
+    const resta = () => {
+      const n1 = parseFloat(number1);
+      const n2 = parseFloat(number2)
+      setResult(n1-n2)
+    }
+
+    const multiplicacion = () => {
+      const n1 = parseFloat(number1);
+      const n2 = parseFloat(number2)
+      setResult(n1*n2)
+    }
+    const division = () => {
+      const n1 = parseFloat(number1);
+      const n2 = parseFloat(number2)
+      setResult(n1/n2)
+    }
+
+
+    
+  
+  
+      const almacenamiento = empleados.map((empleado, i) => (
+        <div key={i}>
+          <p>Nombre: {empleados[i].name}</p>
+          <p>Apellidos: {empleados[i].lastName}</p>
+          <p>Hobbies: {empleados[i].hobbies.join(', ')}</p>
+          <p>Edad: {empleados[i].age}</p>
+        </div>
+      ));
+    
+    
+    
    
   return (
-    // tengo que poner aquí el logo en lo de arriba. Que no se me olvide
+    // cabecera: logo
     <div className="envoltura">
-      {almacenamiento}
-      {/* <Form> */}
-      {/* {suma} --> clacula la suma de los dos elementos que hay en los inputs */}
-      {resultadopatata}
-      {cocreta} 
-      {/* ejemplo para cambiar luego patata por el resultado que tengo que guardar en las variables para que haga la suma. Puedo usar las mismas variables para el resto */}
-      {/* <button>Aquí tiene que enviar algo para que funcione</button>
-      </Form> */}
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
+      <header>
+      <img src={('./assets/cocretainc.jpg')} />
+      </header>
+      <main>
+      {almacenamiento} 
+
+        <form onSubmit={(e) => { 
+          e.preventDefault(); 
+        }}>
+          <input 
+            type="number" 
+            value={number1} 
+            
+            onChange={(e) => setNumber1(e.target.value)} 
+            placeholder="add a number" 
+            />
+          <input 
+            type="number" 
+            value={number2} 
+            onChange={(e) => setNumber2(e.target.value)} 
+            placeholder="add a number" 
+            />
+          <button onClick={()=> suma(number1,number2)}>Add</button>
+          <button onClick={()=> resta(number1,number2)}>Subtract</button>
+          <button onClick={()=> multiplicacion(number1,number2)}>Multiply</button>
+          <button onClick={()=> division(number1,number2)}>Divide</button>
+        </form>
+        <div>
+          <h2>Resultado: {result}</h2>
+        </div>
+  
+
+      </main>
+      <footer>
+        <p>Todos los derechos reservados</p>
+        <p>Coquetas INC</p>
+        <p>Dirección: Simancas (Madriz)</p>
+        <p>Teléfono: 917335673 - 635444912</p>
+        <p>Email: croquetasINC@hotmail.com</p>
+      </footer> 
     </div>
-    /* <pie /> */
   )
-}
+
+};
+
 
 export default App
